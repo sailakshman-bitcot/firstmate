@@ -1,0 +1,3 @@
+
+tick: quiet (empty queue, nothing pending)
+exit=0

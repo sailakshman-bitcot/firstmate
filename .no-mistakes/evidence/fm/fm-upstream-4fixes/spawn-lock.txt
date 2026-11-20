@@ -1,0 +1,9 @@
+== task-spawn holder wait=4
+error: this home's task set stayed locked by another spawn for 4s; refusing to create task zz-probe - retry the spawn
+elapsed=5s
+== holder released after 3s, wait=15
+bin/fm-spawn.sh: line 4257: cd: nonexistent-dir: No such file or directory
+elapsed=4s
+== forced-teardown holder wait=30
+error: this home's task set is locked by a forced teardown; refusing to create task zz-probe rather than racing it
+elapsed=0s

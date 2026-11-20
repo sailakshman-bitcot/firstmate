@@ -1,0 +1,19 @@
+== A red
+error: refusing to merge https://github.com/o/r/pull/7
+  - check 'ci' is not green
+exit=1
+0
+== B green
+verified: https://github.com/o/r/pull/7 is open, non-draft, MERGEABLE, every reported check green, at head 0123456789abcdef0123456789abcdef01234567
+verified: https://github.com/o/r/pull/7 is MERGED; recorded detached in state/pr-merge-ledger.log
+exit=0
+gh pr merge 7 --repo o/r --method squash --match-head-commit 0123456789abcdef0123456789abcdef01234567
+1795153284	merged	https://github.com/o/r/pull/7	head=0123456789abcdef0123456789abcdef01234567	method=squash	detached=1
+== C unproved
+verified: https://github.com/o/r/pull/7 is open, non-draft, MERGEABLE, every reported check green, at head 0123456789abcdef0123456789abcdef01234567
+error: the merge did not land: state=OPEN, merged=false; nothing is recorded as landed
+exit=1
+== F real draft
+error: refusing to merge https://github.com/o/r/pull/7
+  - the pull request is a draft
+exit=1

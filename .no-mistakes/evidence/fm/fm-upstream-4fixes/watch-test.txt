@@ -1,0 +1,8 @@
+ok - without config/paused-wait-supersession superseding states keep the declared-wait cadence and spend no extra crew-state read
+ok - with the away-mode flag present an armed busy paused worker at a human gate behaves exactly as with the flag absent: no superseded wake and no crew-state read
+ok - exited declared-pause and captain-held panes use bounded pause cadence while a live decision gate still surfaces once
+ok - own-work waits keep one first alert, then bounded rechecks without wedges; undeclared idle still alarms
+ok - absorbed paused and captain-held replacements each start their own re-surface cadence
+ok - a parked live worker surfaces once, absorbs pane churn for the whole re-surface window, then re-surfaces when it elapses
+Terminated                 sleep 0.1
+Terminated                 sleep "$POLL"

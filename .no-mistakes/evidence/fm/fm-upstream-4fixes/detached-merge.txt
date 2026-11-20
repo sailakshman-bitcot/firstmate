@@ -1,0 +1,23 @@
+## green non-draft
+verified: https://github.com/o/r/pull/7 is open, non-draft, MERGEABLE, every reported check green, at head abc123
+verified: https://github.com/o/r/pull/7 is MERGED; recorded detached in state/pr-merge-ledger.log
+exit=0
+gh pr view https://github.com/o/r/pull/7 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,statusCheckRollup
+gh pr merge 7 --repo o/r --method squash --match-head-commit abc123
+gh api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged}}} -F owner=o -F repo=r -F number=7 --jq "state=" + (.data.repository.pullRequest.state // ""), "merged=" + (.data.repository.pullRequest.merged | tostring)
+1795154587	merged	https://github.com/o/r/pull/7	head=abc123	method=squash	detached=1
+## draft
+error: refusing to merge https://github.com/o/r/pull/7
+  - the pull request is a draft
+exit=1
+0
+## red check
+error: refusing to merge https://github.com/o/r/pull/7
+  - check 'ci' is not green
+exit=1
+## afk
+error: an away-posture record exists; a detached merge has no task record to resolve authority from and refuses rather than merge unattended
+exit=1
+## bound task
+error: x still records https://github.com/o/r/pull/7 - merge it through bin/fm-pr-merge.sh, not this script
+exit=1

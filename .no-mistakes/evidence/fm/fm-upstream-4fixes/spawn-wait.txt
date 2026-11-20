@@ -1,0 +1,2 @@
+rc=3 elapsed=0s
+error: refusing fleet lifecycle from inside a no-mistakes gate worktree (~/.no-mistakes/repos/5b1a6db4b6fd.git)
